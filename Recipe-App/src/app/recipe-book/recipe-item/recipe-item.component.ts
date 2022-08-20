@@ -7,15 +7,14 @@ import { Recipe } from '../recipe-list/recipe-modal';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipes : Recipe
+  @Input() recipe: Recipe
 
 
   constructor() {
-
   }
 
   ngOnInit(): void {
-    console.log(this.recipes.description);
+    console.log(this.recipe);
   }
 
 }
