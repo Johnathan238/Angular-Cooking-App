@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Recipe } from '../recipe-list/recipe-modal';
+import { Recipe, RECIPE_DATA } from '../recipe-list/recipe-modal';
 
 @Component({
   selector: 'app-recipe-item',
@@ -7,14 +7,14 @@ import { Recipe } from '../recipe-list/recipe-modal';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipes: Recipe[]
+  @Input() recipes: Recipe
 
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.recipes[0]);
+    console.log(this.recipes);
   }
 
 }
