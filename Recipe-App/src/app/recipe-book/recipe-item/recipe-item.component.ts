@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe, RECIPE_DATA } from '../recipe-list/recipe-modal';
 
 @Component({
@@ -8,7 +8,7 @@ import { Recipe, RECIPE_DATA } from '../recipe-list/recipe-modal';
 })
 export class RecipeItemComponent implements OnInit {
   @Input() recipes: Recipe
-
+  @Output() recipeSelected = new EventEmitter<any>()
 
   constructor() {
   }
@@ -17,4 +17,9 @@ export class RecipeItemComponent implements OnInit {
     console.log(this.recipes);
   }
 
+  onSelected(){
+    this.recipeSelected.emit()
+    console.log(this.recipeSelected);
+
+  }
 }
