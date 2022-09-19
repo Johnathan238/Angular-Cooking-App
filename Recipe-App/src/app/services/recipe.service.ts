@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from '../recipe-book/recipe-list/recipe-modal';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
+  recipeSelected = new EventEmitter<Recipe>()
+
+
   RECIPE_DATA: Recipe[] = [
   {
   name: "Healthy Pasta with Spicy Crab",
