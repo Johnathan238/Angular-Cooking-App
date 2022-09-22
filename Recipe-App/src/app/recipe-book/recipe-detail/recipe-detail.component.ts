@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { RecipeService } from 'src/app/services/recipe.service';
+
 import { Recipe } from '../recipe-list/recipe-modal';
 
 @Component({
@@ -8,12 +10,20 @@ import { Recipe } from '../recipe-list/recipe-modal';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe
+  @Output() featureSelected = new EventEmitter<string>()
 
-  constructor() { }
+  onSelect(feature: string){
+    this.featureSelected.emit(feature)
+  }
+
+
+  constructor(private shoppingList: RecipeService) { }
 
   ngOnInit(): void {
     console.log(this.recipe);
-
   }
 
+  shoppingIngredients(){
+    this.shoppingList.addIngredientsToshoppingList(this.recipe.ingredients)
+  }
 }
